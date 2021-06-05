@@ -161,7 +161,7 @@ var module = (function () {
   // outside our lexical scope
   return {
     // Code here.
-    publicMethod: function() {
+    publicMethod: function () {
       return privateMethod()
     }
   };
@@ -183,7 +183,7 @@ function secretNumber() {
 
   return {
     // Code here
-    addToSecret: function(add) {
+    addToSecret: function (add) {
       return secret += add;
     },
     takeAwayFromSecret: function (remove) {
@@ -214,9 +214,13 @@ function secretNumber() {
 
 function timeOutCounter() {
   for (var i = 0; i <= 5; i++) {
-    setTimeout(function () {
-      console.log(i);
-    }, i * 1000);
+    function memoryClosure(index) {
+      setTimeout(function () {
+        console.log(index);
+      }, i * 1000);
+    }
+    memoryClosure(i)
   }
+
 }
 timeOutCounter();
