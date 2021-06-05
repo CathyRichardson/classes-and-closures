@@ -70,9 +70,6 @@ class Manager extends Employee {
   fire(index) {
     this.reports.splice(index, 1);
   }
-  reportsCount() {
-    return this.reports.length;
-  }
 }
 
 
@@ -115,7 +112,7 @@ class ProgressiveManager extends Manager {
     this.setTitle(numEmployees);
   }
   setTitle() {
-    let numEmployees = super.reportsCount()
+    let numEmployees = this.reports.length;
     if (numEmployees === 0) {
       this.title = 'Not a manager';
     } else if (numEmployees < 4) {
