@@ -103,13 +103,13 @@ class ProgressiveManager extends Manager {
     this.bonus = 0;
   }
   hire(employee) {
-    let numEmployees = super.hire(employee);
-    this.setTitle(numEmployees);
+    super.hire(employee);
+    this.setTitle();
   }
   fire(index) {
-    let numEmployees = super.fire(index);
+    super.fire(index);
     this.bonus += 100;
-    this.setTitle(numEmployees);
+    this.setTitle();
   }
   setTitle() {
     let numEmployees = this.reports.length;
